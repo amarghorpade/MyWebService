@@ -14,9 +14,7 @@ public class UserDaoImpl {
 
 	public List getAll() {
 		Session session = new Configuration().configure().buildSessionFactory().openSession();
-		Transaction t = session.beginTransaction();
 		List list = session.createQuery("from User").list();
-		t.commit();
 		session.close();
 		return list;
 	}
@@ -46,10 +44,6 @@ public class UserDaoImpl {
 		session.close();
 		return true;
 	}
-
-	/*
-	  	public int getMaxID()
-	  	{ int id= return id; }
-	 */
-
+	
+	
 }
